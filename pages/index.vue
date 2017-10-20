@@ -21,7 +21,7 @@ export default {
 
 <style lang="sass">
 .body
-  height: 80vh
+  height: 100vh
   display: block
   background-image: url('~/assets/typhoon_press_photo.jpg')
   background-position: center
