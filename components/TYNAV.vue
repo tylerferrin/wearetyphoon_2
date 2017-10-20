@@ -4,15 +4,28 @@
     <h4
     v-on:click="toggleNav()"
     v-if="isNavShowing == false"
-    class="menu-button">MENU</h4>
+    class="menu-button">+</h4>
   </transition>
   <transition name="slideIn">
     <ul class="nav__ul" v-if="isNavShowing">
-      <li>Live</li>
-      <li>Music</li>
-      <li>Webshop</li>
-      <li>News</li>
-      <li>About</li>
+      <li>
+        <nuxt-link to="/news">News</nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/music">Music</nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/tour">Tour</nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/video">Videos</nuxt-link>
+      </li>
+      <li>
+        <a href="#">Webshop</a>
+      </li>
+      <li>
+        <nuxt-link to="/about">about</nuxt-link>
+      </li>
       <li class="nav__ul--close"
           v-on:click="toggleNav()"
       >X</li>
@@ -45,31 +58,40 @@ export default {
     justify-content: space-between
     margin: 0
     padding-left: 65px
+    z-index: 99999
     li
-      display: inline-block
-      width: auto
-      list-style: none
-      padding: 7.5px 0
-      color: black
-      font-family: 'Futura'
-      text-transform: uppercase
-      letter-spacing: 1px
-      transition: transform .25s ease-in-out
-      &:hover
-        cursor: pointer
-        transform: translate(-15px)
+      list-style-type: none
+      a
+        text-decoration: none
+        display: inline-block
+        width: auto
+        padding: 7.5px 0
+        color: black
+        font-family: 'Futura'
+        text-transform: uppercase
+        letter-spacing: 1px
+        transition: transform .25s ease-in-out
+        &:hover
+          cursor: pointer
+          transform: translate(-15px)
   &__ul--close
     display: block !important
     margin-top: 50px !important
+    font-family: 'Futura'
     &:hover
       transform: translate(0) !important
+      cursor: pointer
 
 .menu-button
   font-family: 'Futura'
   position: absolute
-  top: -35px
+  top: -65px
   left: 65px
   font-weight: normal
+  font-size: 24px
+  z-index: 1
+  &:hover
+    cursor: pointer
 
 .slideIn-enter-active,
 .slideIn-leave-active

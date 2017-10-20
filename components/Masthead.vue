@@ -1,8 +1,10 @@
 <template>
   <div class="mh__container">
+    <nuxt-link to="/">
     <div class="mh__logo-container">
         <img src="~/assets/TYPHOON_OFFERINGS_TYPEFACE.svg" alt="TYPHOON">
     </div>
+  </nuxt-link>
     <TYNAV />
   </div>
 </template>
