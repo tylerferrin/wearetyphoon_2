@@ -18,7 +18,7 @@
         <nuxt-link to="/tour">Tour</nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/video">Videos</nuxt-link>
+        <nuxt-link to="/video">Video</nuxt-link>
       </li>
       <li>
         <a href="#">Webshop</a>
@@ -69,17 +69,19 @@ export default {
         width: auto
         color: black
         font-family: 'Futura'
+        font-size: 13px
         text-transform: uppercase
         letter-spacing: 1px
         transition: transform .25s ease-in-out, color .25s ease-out
         &:hover
           cursor: pointer
-          transform: translate(-15px)
+          transform: translate(-5px)
           color: #d4af37
   &__ul--close
     display: block !important
     margin-top: 50px !important
     font-family: 'Futura'
+    font-size: 13px
     transition: transform .25s ease-out, color .25s ease-out
     padding: 10px 20px
     &:hover

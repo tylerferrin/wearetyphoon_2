@@ -1,11 +1,16 @@
 <template>
+  <ShowList :shows="shows" />
 </template>
 <script>
 import * as contentful from 'contentful'
 import _ from 'lodash'
 import moment from 'moment'
+import ShowList from '~/components/ShowList.vue'
 
 export default {
+  components: {
+    ShowList
+  },
   data () {
     return {
 
@@ -22,7 +27,7 @@ export default {
           return Object.assign({}, item.fields, item.sys.contentType.sys)
         })
         filteredDownResponse = _.each(filteredDownResponse, (item) => {
-          item.date = moment(item.date).format('MM.DD.YYYY')
+          item.date = moment(item.date)
         })
         return {
           shows: _.orderBy(_.filter(filteredDownResponse, (item) => {

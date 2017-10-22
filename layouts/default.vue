@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <Masthead />
+    <p class="pageTitle">{{ pageTitle }}</p>
     <div v-bind:class="{ notIndex: notIndex }">
       <div class="pageContent">
         <nuxt />
@@ -18,7 +19,8 @@ export default {
   },
   data () {
     return {
-      notIndex: false
+      notIndex: false,
+      pageTitle: null
     }
   },
   mounted () {
@@ -33,8 +35,10 @@ export default {
     '$route' (to, from) {
       if (to.name !== 'index') {
         this.notIndex = true
+        this.pageTitle = to.name
       } else {
         this.notIndex = false
+        this.pageTitle = null
       }
     }
   }
@@ -53,6 +57,19 @@ body
   background-size: contain
   background-repeat: no-repeat
   transition: all .25s ease-in-out
+
+.pageTitle
+  position: absolute
+  top: 45px
+  right: 100px
+  font-family: 'Futura'
+  font-size: 16px
+  font-weight: bold
+  color: black
+  z-index: 999999
+  text-transform: uppercase
+  padding-bottom: 5px
+  border-bottom: 5px solid black
 
 .notIndex
   height: 100vh
