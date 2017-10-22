@@ -7,15 +7,18 @@
         <nuxt />
       </div>
     </div>
+    <Footer />
   </section>
 </template>
 
 <script>
 import Masthead from '~/components/Masthead.vue'
+import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
-    Masthead
+    Masthead,
+    Footer
   },
   data () {
     return {
@@ -26,9 +29,10 @@ export default {
   mounted () {
     if (this.$route.name !== 'index') {
       this.notIndex = true
-      console.log('true')
+      this.pageTitle = this.$route.name
     } else {
       this.notIndex = false
+      this.pageTitle = null
     }
   },
   watch: {
@@ -70,6 +74,7 @@ body
   text-transform: uppercase
   padding-bottom: 5px
   border-bottom: 5px solid black
+  letter-spacing: 1.5px
 
 .notIndex
   height: 100vh

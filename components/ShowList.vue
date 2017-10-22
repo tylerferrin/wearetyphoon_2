@@ -33,6 +33,8 @@ export default {
       font-size: 12px
       font-weight: bold
       width: 150px
+      padding-top: 7px
+
   &__ticket-button,
   &__rsvp-button
     font-family: 'Futura'

@@ -1,40 +1,41 @@
 <template>
-<div class="nav">
-  <transition name=fade>
-    <h4
-    v-on:click="toggleNav()"
-    v-if="isNavShowing == false"
-    class="menu-button">+</h4>
-  </transition>
-  <transition name="slideIn">
-    <ul class="nav__ul" v-if="isNavShowing">
-      <li>
-        <nuxt-link to="/news">News</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/music">Music</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/tour">Tour</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/video">Video</nuxt-link>
-      </li>
-      <li>
-        <a href="#">Webshop</a>
-      </li>
-      <li>
-        <nuxt-link to="/about">about</nuxt-link>
-      </li>
-      <li class="nav__ul--close"
-          v-on:click="toggleNav()"
-      >X</li>
-    </ul>
-</transition>
-</div>
+  <div class="nav">
+    <transition name=fade>
+      <h4
+      v-on:click="toggleNav()"
+      v-if="isNavShowing == false"
+      class="menu-button">+</h4>
+    </transition>
+    <transition name="slideIn">
+      <ul class="nav__ul" v-if="isNavShowing">
+        <li>
+          <nuxt-link to="/news">News</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/music">Music</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/tour">Tour</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/video">Video</nuxt-link>
+        </li>
+        <li>
+          <a href="http://wearetyphoon.merchline.com" target="_blank">Webshop</a>
+        </li>
+        <li>
+          <nuxt-link to="/about">about</nuxt-link>
+        </li>
+        <li class="nav__ul--close"
+            v-on:click="toggleNav()"
+        >X</li>
+      </ul>
+    </transition>
+  </div>
 </template>
 
 <script>
+
 export default {
   data () {
     return {
