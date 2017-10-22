@@ -33,6 +33,7 @@
 </transition>
 </div>
 </template>
+
 <script>
 export default {
   data () {
@@ -57,54 +58,70 @@ export default {
     flex-direction: column
     justify-content: space-between
     margin: 0
-    padding-left: 65px
+    padding-left: 42px
     z-index: 99999
     li
       list-style-type: none
       a
+        padding: 10px 20px
         text-decoration: none
         display: inline-block
         width: auto
-        padding: 7.5px 0
         color: black
         font-family: 'Futura'
         text-transform: uppercase
         letter-spacing: 1px
-        transition: transform .25s ease-in-out
+        transition: transform .25s ease-in-out, color .25s ease-out
         &:hover
           cursor: pointer
           transform: translate(-15px)
+          color: #d4af37
   &__ul--close
     display: block !important
     margin-top: 50px !important
     font-family: 'Futura'
+    transition: transform .25s ease-out, color .25s ease-out
+    padding: 10px 20px
     &:hover
       transform: translate(0) !important
       cursor: pointer
+      color: #d4af37
 
+// '+' to open Nav options
 .menu-button
   font-family: 'Futura'
   position: absolute
-  top: -65px
-  left: 65px
+  top: -70px
+  left: 53px
+  padding: 10px
   font-weight: normal
   font-size: 24px
-  z-index: 1
+  z-index: 10
+  transform: scale(.8)
+  transition: all .25s ease-out
   &:hover
     cursor: pointer
+    transform: scale(1)
+    color: #d4af37
 
+// nav slideIn classes
 .slideIn-enter-active,
 .slideIn-leave-active
-  transition: transform .2s ease-in-out .1s
+  transition: transform .2s ease-in-out .1s, opacity .2s ease-out .1s
 .slideIn-enter,
 .slideIn-leave-to
-  transform: translate(-200px)
+  transform: translateY(50px)
+  opacity: 0
 
-
+// simple fade transition
 .fade-enter-active,
 .fade-leave-active
   transition: opacity .25s ease-in-out .1s
 .fade-enter,
 .fade-leave-to
   opacity: 0
+
+// active link behaviors
+.nuxt-link-active
+  color: #d4af37 !important
 </style>

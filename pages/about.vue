@@ -1,5 +1,4 @@
 <template>
-  <div class="opaque-container">
     <div class="about__container">
       <p>It's barely yours on loan. It's gone on long enough. But that doesn't mean I'll stop breathing it. Can you wait for the sidewalk?. What hasn't changed for you. What has it changed for you?. Come on, break it up. Only knowing that explained a lot. This strange plan is random at best. Waiting for you. This strange day is almost over. And in gravity too, and its severity. (1409607566242). What you think you own. What has it changed for you?</p>
 
@@ -9,17 +8,10 @@
 
       <p>All said and done, who's gonna bother remembering?. They know what makes us tick. Like anyone assuming</p>
     </div>
-  </div>
 </template>
 <style lang="sass">
-.opaque-container
-  width: 100vw
-  height: 100vh
-  opacity: .95
-  background-color: white
   .about__container
-    height: 100%
-    width: 80%
+    height: auto
     p
       margin: 0
       margin-bottom: 10px

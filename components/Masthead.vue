@@ -31,5 +31,6 @@ export default {
     display: flex
     flex-direction: row
     justify-content: flex-start
-
+    img
+      z-index: 9
 </style>

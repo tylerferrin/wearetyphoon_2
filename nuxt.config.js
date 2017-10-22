@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   /*
   ** Headers of the page
@@ -16,7 +18,14 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: false,
+  /*
+  ** Environment Variables
+  */
+  env: {
+    spaceId: process.env.SPACE_ID,
+    accessToken: process.env.ACCESS_TOKEN
+  },
   /*
   ** Build configuration
   */
