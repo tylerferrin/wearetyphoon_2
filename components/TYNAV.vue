@@ -21,7 +21,7 @@
           <nuxt-link to="/video">Video</nuxt-link>
         </li>
         <li>
-          <a href="http://wearetyphoon.merchline.com" target="_blank">Webshop</a>
+          <a href="http://wearetyphoon.merchline.com" target="_blank">Store</a>
         </li>
         <li>
           <nuxt-link to="/about">about</nuxt-link>
@@ -39,7 +39,7 @@
 export default {
   data () {
     return {
-      isNavShowing: false,
+      isNavShowing: true,
       toggleNav: () => {
         this.isNavShowing = !this.isNavShowing
       }
@@ -59,8 +59,10 @@ export default {
     flex-direction: column
     justify-content: space-between
     margin: 0
-    padding-left: 42px
+    padding-left: 7px
     z-index: 99999
+    position: relative
+    top: 112px
     li
       list-style-type: none
       a
@@ -70,7 +72,7 @@ export default {
         width: auto
         color: black
         font-family: 'Futura'
-        font-size: 13px
+        font-size: 12px
         text-transform: uppercase
         letter-spacing: 1px
         transition: transform .25s ease-in-out, color .25s ease-out
@@ -94,8 +96,8 @@ export default {
 .menu-button
   font-family: 'Futura'
   position: absolute
-  top: -70px
-  left: 53px
+  top: 73px
+  left: 17px
   padding: 10px
   font-weight: normal
   font-size: 24px

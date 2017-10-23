@@ -2,10 +2,12 @@
   <ShowList :shows="shows" />
 </template>
 <script>
-import * as contentful from 'contentful'
+import {createClient} from '~/plugins/contentful.js'
 import _ from 'lodash'
 import moment from 'moment'
 import ShowList from '~/components/ShowList.vue'
+
+const client = createClient()
 
 export default {
   components: {
@@ -17,10 +19,6 @@ export default {
     }
   },
   asyncData (context) {
-    const client = contentful.createClient({
-      space: process.env.spaceId,
-      accessToken: process.env.accessToken
-    })
     return client.getEntries()
       .then((response) => {
         let filteredDownResponse = _.map(response.items, (item) => {

@@ -2,23 +2,23 @@
   <section class="container">
     <Masthead />
     <p class="pageTitle">{{ pageTitle }}</p>
-    <div v-bind:class="{ notIndex: notIndex }">
+    <div v-bind:class="{ notIndex: notIndex, index: !notIndex }">
       <div class="pageContent">
         <nuxt />
       </div>
     </div>
-    <Footer />
+    <TYFooter />
   </section>
 </template>
 
 <script>
 import Masthead from '~/components/Masthead.vue'
-import Footer from '~/components/Footer.vue'
+import TYFooter from '~/components/TYFooter.vue'
 
 export default {
   components: {
     Masthead,
-    Footer
+    TYFooter
   },
   data () {
     return {
@@ -52,6 +52,8 @@ export default {
 <style lang="sass">
 body
   margin: 0
+  font-family: 'Helvetica', sans-serif
+  font-weight: 100 !important
 
 .container
   height: 100vh
@@ -64,17 +66,18 @@ body
 
 .pageTitle
   position: absolute
-  top: 45px
-  right: 100px
+  top: 25px
+  right: 25px
   font-family: 'Futura'
   font-size: 16px
   font-weight: bold
   color: black
   z-index: 999999
   text-transform: uppercase
-  padding-bottom: 5px
-  border-bottom: 5px solid black
+  padding-bottom: 2.5px
+  border-bottom: 2px solid black
   letter-spacing: 1.5px
+  margin: 0
 
 .notIndex
   height: 100vh
@@ -83,9 +86,14 @@ body
   opacity: .8
   transition: all .35s
 
+.index
+  height: 100vh
+  width: 100vw
+  transition: all .35s
+
 .pageContent
   margin-left: 15%
-  padding: 158px 100px
+  padding: 150px 200px 0px 25px
 
 .page-enter-active,
 .page-leave-active

@@ -1,17 +1,26 @@
 <template>
   <div class="showList__container">
     <div v-for="show in shows" class="showList__header-row">
-      <p>{{ show.date.format('MM.DD.YYYY') }}</p>
+      <p>{{ show.date }}</p>
       <p>{{ show.venue }}</p>
       <p>{{ show.city }}</p>
-      <button class="showList__ticket-button" :href="show.linkToPurchase" target="_blank">Tickets</button>
-      <button class="showList__rsvp-button">RSVP</button>
+      <a class="showList__ticket-button" v-if="!show.soldOut":href="show.linkToPurchase" target="_blank">TICKETS</a>
+      <a class="showList__sold-out" v-if="show.soldOut" :href="show.linkToPurchase" target="_blank">TICKETS</a>
+      <a class="showList__rsvp-button">INFO</a>
     </div>
   </div>
 </template>
 <script>
+import moment from 'moment'
+import _ from 'lodash'
+
 export default {
-  props: ['shows']
+  props: ['shows'],
+  created () {
+    this.shows = _.each(this.shows, (show) => {
+      show.date = moment(show.date).format('MM.DD.YYYY')
+    })
+  }
 }
 </script>
 
@@ -34,9 +43,12 @@ export default {
       font-weight: bold
       width: 150px
       padding-top: 7px
+      text-transform: uppercase
 
   &__ticket-button,
   &__rsvp-button
+    text-decoration: none
+    text-align: center
     font-family: 'Futura'
     letter-spacing: 1px
     font-size: 12px
@@ -55,4 +67,16 @@ export default {
     width: 100px
   &__rsvp-button
     width: 75px
+  &__sold-out
+    color: red
+    text-decoration: none
+    font-family: 'Futura'
+    width: 100px
+    text-decoration: line-through
+    text-align: center
+    padding: 5px
+    letter-spacing: 1px
+    font-size: 12px
+    font-weight: bold
+
 </style>

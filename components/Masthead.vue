@@ -2,7 +2,7 @@
   <div class="mh__container">
     <nuxt-link to="/">
     <div class="mh__logo-container">
-        <img src="~/assets/TYPHOON_OFFERINGS_TYPEFACE.svg" alt="TYPHOON">
+        <img src="~/assets/typhoon_type.png" alt="TYPHOON">
     </div>
   </nuxt-link>
     <TYNAV />
@@ -33,4 +33,9 @@ export default {
     justify-content: flex-start
     img
       z-index: 9
+      width: 256px
+      height: 36px
+      position: relative
+      top: 25px
+      left: 25px
 </style>

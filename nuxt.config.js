@@ -43,5 +43,8 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  plugins: [
+    '~/plugins/contentful'
+  ]
 }
