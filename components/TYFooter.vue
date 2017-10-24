@@ -25,7 +25,7 @@
 <style lang="sass">
 .footer
   &__container
-    position: absolute
+    position: fixed
     top: 0
     right: 0
     height: 100vh

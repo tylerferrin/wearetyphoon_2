@@ -54,10 +54,9 @@ export default {
     font-size: 12px
     font-weight: bold
     padding: 5px
-    background-color: white
+    background-color: transparent
     border: 2px solid black
     color: black
-    opacity: 1
     transition: background-color .25s ease-out
     &:hover
       color: white
