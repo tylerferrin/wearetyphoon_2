@@ -1,4 +1,15 @@
 require('dotenv').config()
+const kebabCase = require('kebab-case')
+const contentful = require('contentful')
+const _ = require('lodash')
+const moment = require('moment')
+
+const config = {
+  space: process.env.SPACE_ID,
+  accessToken: process.env.ACCESS_TOKEN
+}
+
+const client = contentful.createClient(config)
 
 module.exports = {
   /*
@@ -39,12 +50,38 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules|pages)/
+          exclude: /(node_modules|pages|middleware)/
         })
       }
     }
   },
   plugins: [
     '~/plugins/contentful'
-  ]
+  ],
+  generate: {
+    routes: function () {
+      return client.getEntries()
+      .then((response) => {
+        let filteredDownResponse = _.map(response.items, (item) => {
+          return Object.assign({}, item.fields, item.sys.contentType.sys)
+        })
+        filteredDownResponse = _.each(filteredDownResponse, (item) => {
+          item.publishDate = moment(item.date)
+        })
+        let posts = _.orderBy(_.filter(filteredDownResponse, (item) => {
+          return item.id === 'news'
+        }), 'publishDate')
+        return posts.map((post) => {
+          let title = post.title.toLowerCase()
+          return {
+            route: '/news/' + kebabCase(post.title).split('-')[1],
+            payload: post
+          }
+        })
+
+
+      })
+      .catch(console.error)
+    }
+  }
 }

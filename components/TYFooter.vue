@@ -15,7 +15,7 @@
           action="http://www.fanbridge.com/signup/fansignup_form.php?userid=206848" method="post">
           <div class="footer__container--input-div">
             <input type="email" name="" placeholder="Newsletter Sign-up" value="" />
-            <input type="submit" value="" disabled/>
+            <input type="submit" value=" " disabled/>
           </div>
     </form>
   </div>
@@ -34,7 +34,7 @@
     display: flex
     flex-direction: column
     justify-content: flex-end
-    z-index: 99999999
+
   &__container--email__signup
     padding: 0 25px 0 0
   &__container--input-div

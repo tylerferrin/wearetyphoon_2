@@ -28,7 +28,11 @@ export default {
   mounted () {
     if (this.$route.name !== 'index') {
       this.notIndex = true
-      this.pageTitle = this.$route.name
+      if (this.$route.name === 'news*') {
+        this.pageTitle = 'news'
+      } else {
+        this.pageTitle = this.$route.name
+      }
     } else {
       this.notIndex = false
       this.pageTitle = null
@@ -38,7 +42,11 @@ export default {
     '$route' (to, from) {
       if (to.name !== 'index') {
         this.notIndex = true
-        this.pageTitle = to.name
+        if (to.name === 'news*') {
+          this.pageTitle = 'news'
+        } else {
+          this.pageTitle = to.name
+        }
       } else {
         this.notIndex = false
         this.pageTitle = null

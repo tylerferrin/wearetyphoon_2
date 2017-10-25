@@ -15,28 +15,8 @@ export default {
   },
   data () {
     return {
-
+      shows: this.$store.state.shows
     }
-  },
-  asyncData (context) {
-    return client.getEntries()
-      .then((response) => {
-        let filteredDownResponse = _.map(response.items, (item) => {
-          return Object.assign({}, item.fields, item.sys.contentType.sys)
-        })
-        filteredDownResponse = _.each(filteredDownResponse, (item) => {
-          item.date = moment(item.date)
-        })
-        return {
-          shows: _.orderBy(_.filter(filteredDownResponse, (item) => {
-            return item.id === 'show'
-          }), 'date'),
-          videos: _.filter(filteredDownResponse, (item) => {
-            return item.id === 'video'
-          })
-        }
-      })
-      .catch(console.error)
   }
 }
 </script>

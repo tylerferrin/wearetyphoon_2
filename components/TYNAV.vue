@@ -9,7 +9,7 @@
     <transition name="slideIn">
       <ul class="nav__ul" v-if="isNavShowing">
         <li>
-          <nuxt-link to="/news">News</nuxt-link>
+          <nuxt-link :to="freshNews()">News</nuxt-link>
         </li>
         <li>
           <nuxt-link to="/music">Music</nuxt-link>
@@ -21,7 +21,7 @@
           <nuxt-link to="/video">Video</nuxt-link>
         </li>
         <li>
-          <a href="http://wearetyphoon.merchline.com" target="_blank">Store</a>
+          <a href="http://wearetyphoon.store" target="_blank">Store</a>
         </li>
         <li>
           <nuxt-link to="/about">about</nuxt-link>
@@ -42,6 +42,9 @@ export default {
       isNavShowing: true,
       toggleNav: () => {
         this.isNavShowing = !this.isNavShowing
+      },
+      freshNews: () => {
+        return '/news/' + this.$store.state.freshPost
       }
     }
   }

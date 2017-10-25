@@ -5,7 +5,11 @@
         <img src="~/assets/typhoon_type.png" alt="TYPHOON">
       </div>
     </nuxt-link>
-    <p class="pageTitle">{{ pageTitle }}</p>
+    <p class="page-title">{{ pageTitle }}</p>
+    <div class="page-turners" v-if="pageTitle === 'news' ">
+      <p><img src="~/assets/arrow.png" class="left-arrow">Newer</p>
+      <p>Older<img src="~/assets/arrow.png" class="right-arrow"></p>
+    </div>
     <TYNAV />
   </div>
 </template>
@@ -22,9 +26,14 @@ export default {
     }
   },
   mounted () {
-    if (this.$route.name !== 'index') {
+    const routeName = this.$route.name
+    if (routeName !== 'index') {
       this.notIndex = true
-      this.pageTitle = this.$route.name
+      if (routeName === 'news-post') {
+        this.pageTitle = 'news'
+      } else {
+        this.pageTitle = routeName
+      }
     } else {
       this.notIndex = false
       this.pageTitle = null
@@ -32,8 +41,13 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      if (to.name !== 'index') {
-        this.pageTitle = to.name
+      const routeName = to.name
+      if (routeName !== 'index') {
+        if (routeName === 'news-post') {
+          this.pageTitle = 'news'
+        } else {
+          this.pageTitle = routeName
+        }
       } else {
         this.pageTitle = null
       }
@@ -49,7 +63,7 @@ export default {
     top: 0
     display: block
     width: 100vw
-    height: calc(100vh / 5)
+    height: 140px
     z-index: 10
 
   &__logo-container
@@ -64,7 +78,7 @@ export default {
       top: 25px
       left: 25px
 
-.pageTitle
+.page-title
   position: absolute
   top: 25px
   right: 25px
@@ -77,4 +91,34 @@ export default {
   border-bottom: 2px solid black
   letter-spacing: 1.5px
   margin: 0
+
+.page-turners
+  position: absolute
+  top: 125px
+  right: 25px
+  margin: 0
+  width: 100px
+  z-index: 25
+  p:nth-child(2)
+    float: right
+  p
+    display: block
+    text-transform: uppercase
+    font-family: 'Futura'
+    float: right
+    letter-spacing: 1px
+    &:hover
+      cursor: pointer
+    img
+      height: 25px
+      width: 25px
+      position: relative
+      top: 7px
+  .left-arrow
+    transform: rotate(-90deg)
+    margin-right: 10px
+  .right-arrow
+    transform: rotate(90deg)
+    margin-left: 10px
+
 </style>
