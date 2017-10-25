@@ -8,7 +8,7 @@
         <a class="social-link" href="https://www.facebook.com/wearetyphoon/">Facebook</a>
       </li>
       <li>
-        <a class="social-link" href="http://twitter.com">Twitter</a>
+        <a class="social-link" href="https://twitter.com/wearetyphoon">Twitter</a>
       </li>
     </ul>
     <form class="footer__container--email__signup"
