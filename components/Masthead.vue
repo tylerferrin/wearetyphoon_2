@@ -7,8 +7,14 @@
     </nuxt-link>
     <p class="page-title">{{ pageTitle }}</p>
     <div class="page-turners" v-if="pageTitle === 'news' ">
-      <p><img src="~/assets/arrow.png" class="left-arrow">Newer</p>
-      <p>Older<img src="~/assets/arrow.png" class="right-arrow"></p>
+      <nuxt-link :to="previous()" v-if="doesPreviousExist()">
+          <img src="~/assets/arrow.png" class="left-arrow">
+          Newer
+        </nuxt-link>
+      <nuxt-link :to="older()" v-if="doesOlderExist()">
+        Older
+        <img src="~/assets/arrow.png" class="right-arrow">
+      </nuxt-link>
     </div>
     <TYNAV />
   </div>
@@ -22,7 +28,23 @@ export default {
   },
   data () {
     return {
-      pageTitle: null
+      pageTitle: null,
+      doesPreviousExist: () => {
+        if (this.$store.state.currentPostIndex - 1 >= 0) {
+          return true
+        }
+      },
+      previous: () => {
+        return '/news/' + this.$store.state.allPostUrls[this.$store.state.currentPostIndex - 1]
+      },
+      doesOlderExist: () => {
+        if (this.$store.state.allPostUrls[this.$store.state.currentPostIndex + 1]) {
+          return true
+        }
+      },
+      older: () => {
+        return '/news/' + this.$store.state.allPostUrls[this.$store.state.currentPostIndex + 1]
+      }
     }
   },
   mounted () {
@@ -41,6 +63,7 @@ export default {
   },
   watch: {
     '$route' (to, from) {
+      this.$router.push(to.path)
       const routeName = to.name
       if (routeName !== 'index') {
         if (routeName === 'news-post') {
@@ -94,15 +117,17 @@ export default {
 
 .page-turners
   position: absolute
-  top: 125px
+  top: 140px
   right: 25px
   margin: 0
-  width: 100px
+  width: 105px
   z-index: 25
-  p:nth-child(2)
-    float: right
-  p
+  a:nth-child(2)
+    margin-top: 25px
+  a
     display: block
+    text-decoration: none
+    color: black
     text-transform: uppercase
     font-family: 'Futura'
     float: right
@@ -119,6 +144,6 @@ export default {
     margin-right: 10px
   .right-arrow
     transform: rotate(90deg)
-    margin-left: 10px
+    margin-left: 14px
 
 </style>

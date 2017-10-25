@@ -21,35 +21,23 @@ export default {
   },
   data () {
     return {
-      notIndex: false,
-      pageTitle: null
+      notIndex: false
     }
   },
   mounted () {
     if (this.$route.name !== 'index') {
       this.notIndex = true
-      if (this.$route.name === 'news*') {
-        this.pageTitle = 'news'
-      } else {
-        this.pageTitle = this.$route.name
-      }
     } else {
       this.notIndex = false
-      this.pageTitle = null
     }
   },
   watch: {
     '$route' (to, from) {
+      this.$router.push(to.path)
       if (to.name !== 'index') {
         this.notIndex = true
-        if (to.name === 'news*') {
-          this.pageTitle = 'news'
-        } else {
-          this.pageTitle = to.name
-        }
       } else {
         this.notIndex = false
-        this.pageTitle = null
       }
     }
   }

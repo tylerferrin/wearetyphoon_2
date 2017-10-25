@@ -50,7 +50,7 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules|pages|middleware)/
+          exclude: /(node_modules|pages|components)/
         })
       }
     }
