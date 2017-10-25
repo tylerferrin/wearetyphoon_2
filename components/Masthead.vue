@@ -63,7 +63,7 @@ export default {
     top: 0
     display: block
     width: 100vw
-    height: 140px
+    height: 100px
     z-index: 10
 
   &__logo-container

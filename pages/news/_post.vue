@@ -1,7 +1,7 @@
 <template>
   <div class="post__container">
     <h1>{{ titleThatKebab(post.title) }}</h1>
-    <h5> {{ dateFormat(post.publishDate) }}</h5>
+    <h5>{{ dateFormat(post.publishDate) }}</h5>
     <div class="post__container--content" id="content"></div>
   </div>
 </template>

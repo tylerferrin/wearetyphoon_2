@@ -24,7 +24,7 @@
           <a href="http://wearetyphoon.store" target="_blank">Store</a>
         </li>
         <li>
-          <nuxt-link to="/about">about</nuxt-link>
+          <nuxt-link to="/contact">contact</nuxt-link>
         </li>
         <li class="nav__ul--close"
             v-on:click="toggleNav()"

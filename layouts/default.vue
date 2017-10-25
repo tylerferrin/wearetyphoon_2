@@ -86,7 +86,7 @@ body
 
 .pageContent
   margin: 0 177px
-  padding: 7.5px 50px
+  padding: 44px 50px
   background-color: transparent
   p:first-of-type
     margin-top: 0
