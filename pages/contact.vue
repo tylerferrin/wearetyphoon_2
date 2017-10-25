@@ -4,7 +4,7 @@
       <p><span>Management</span> | Dalton Sim - {{ $store.state.contacts[0]['management'][0]}}</p>
       <p><span>Management</span> | Mark Jourdian -  {{ $store.state.contacts[0]['management'][1]}}</p>
       <p><span>Booking</span> | North America - {{ $store.state.contacts[0]['bookingNorthAmerica']}}</p>
-      <p><span>Booking</span> | Europe - {{ $store.state.contacts[0]['bandContact']}}</p>
+      <p><span>Booking</span> | Europe - {{ $store.state.contacts[0]['bookingEurope']}}</p>
       <p><span>Publicity</span> | North America - {{ $store.state.contacts[0]['publicityNorthAmerica']}}</p>
       <p><span>Publicity</span> | UK - {{ $store.state.contacts[0]['publicityUk']}}</p>
     </div>
