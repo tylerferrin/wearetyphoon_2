@@ -7,14 +7,14 @@
     </nuxt-link>
     <p class="page-title">{{ pageTitle }}</p>
     <div class="page-turners" v-if="pageTitle === 'news' ">
-      <nuxt-link :to="previous()" v-if="doesPreviousExist()">
-          <img src="~/assets/arrow.png" class="left-arrow">
-          Newer
-        </nuxt-link>
       <nuxt-link :to="older()" v-if="doesOlderExist()">
         Older
         <img src="~/assets/arrow.png" class="right-arrow">
       </nuxt-link>
+      <nuxt-link :to="previous()" v-if="doesPreviousExist()">
+          <img src="~/assets/arrow.png" class="left-arrow">
+          Newer
+        </nuxt-link>
     </div>
     <TYNAV />
   </div>
@@ -50,14 +50,12 @@ export default {
   mounted () {
     const routeName = this.$route.name
     if (routeName !== 'index') {
-      this.notIndex = true
       if (routeName === 'news-post') {
         this.pageTitle = 'news'
       } else {
         this.pageTitle = routeName
       }
     } else {
-      this.notIndex = false
       this.pageTitle = null
     }
   },
@@ -88,6 +86,10 @@ export default {
     width: 100vw
     height: 100px
     z-index: 10
+    @media (max-width: 705px)
+      background-color: white
+      opacity: .97
+      height: 65px
 
   &__logo-container
     display: flex
@@ -100,7 +102,9 @@ export default {
       position: relative
       top: 25px
       left: 25px
-
+      @media (max-width: 705px)
+        width: 140px
+        height: 100%
 .page-title
   position: absolute
   top: 25px
@@ -114,6 +118,8 @@ export default {
   border-bottom: 2px solid black
   letter-spacing: 1.5px
   margin: 0
+  @media (max-width: 705px)
+    display: none
 
 .page-turners
   position: absolute
@@ -130,6 +136,7 @@ export default {
     color: black
     text-transform: uppercase
     font-family: 'Futura'
+    font-size: 14px
     float: right
     letter-spacing: 1px
     &:hover

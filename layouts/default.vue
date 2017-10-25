@@ -4,6 +4,9 @@
     <div v-bind:class="{ notIndex: notIndex, index: !notIndex }">
       <div class="pageContent">
         <nuxt />
+        <div class="buffer-zone">
+
+        </div>
       </div>
     </div>
     <TYFooter />
@@ -33,7 +36,6 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      this.$router.push(to.path)
       if (to.name !== 'index') {
         this.notIndex = true
       } else {
@@ -52,7 +54,7 @@ body
   font-weight: 100 !important
 
 .container
-  height: 100vh
+  min-height: 100vh
   display: block
   background-image: url('~/assets/typhoon_press_photo.jpg')
   background-attachment: fixed
@@ -62,7 +64,7 @@ body
   transition: all .25s ease-in-out
 
 .notIndex
-  height: 100vh
+  min-height: 100vh
   width: 100vw
   background-color: rgba(255,255,255, .9)
   transition: all .35s
@@ -74,10 +76,19 @@ body
 
 .pageContent
   margin: 0 177px
-  padding: 44px 50px
-  background-color: transparent
+  padding: 44px 50px 0
+  background-color: transparent !important
+  height: auto
+  @media (max-width: 881px)
+    padding: 44px 15px 44px 35px !important
+  @media (max-width: 705px)
+    padding: 20px 25px !important
+    margin: 0
+    z-index: 11
   p:first-of-type
     margin-top: 0
+  .buffer-zone
+    height: 25px
 
 .page-enter-active,
 .page-leave-active

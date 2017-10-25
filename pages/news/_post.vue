@@ -3,6 +3,7 @@
     <h1>{{ titleThatKebab(post.title) }}</h1>
     <h5>{{ dateFormat(post.publishDate) }}</h5>
     <div class="post__container--content" id="content"></div>
+    <div class="buffer"></div>
   </div>
 </template>
 
@@ -34,7 +35,7 @@ export default {
   mounted () {
     const postContent = document.getElementById('content')
 
-    let youTubeIframeString = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoId?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>'
+    let youTubeIframeString = '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoId?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>'
 
     let vimeoIframeString = '<iframe src="https://player.vimeo.com/video/videoId?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
 
@@ -87,6 +88,7 @@ export default {
       content: ' '
       display: block
       padding-bottom: 56.25%
+      opacity: 0
     iframe
       position: absolute
       top: 0
@@ -98,4 +100,8 @@ export default {
 
   img
     width: 100%
+
+  .buffer
+    margin-bottom: 200px
+
   </style>

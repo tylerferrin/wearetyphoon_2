@@ -9,9 +9,9 @@ export const state = () => ({
   allPostUrls: [],
   posts: [],
   shows: [],
-  about: [],
-  vidoes: [],
-  currentPostIndex: null
+  videos: [],
+  currentPostIndex: null,
+  contacts: []
 })
 
 export const mutations = {
@@ -27,14 +27,14 @@ export const mutations = {
   setShows (state, shows) {
     state.shows = shows
   },
-  setAbout (state, about) {
-    state.about = about
-  },
   setVideos (state, vidoes) {
     state.vidoes = vidoes
   },
   setCurrentPostIndex (state, index) {
     state.currentPostIndex = index
+  },
+  setContacts (state, contacts) {
+    state.contacts = contacts
   }
 }
 
@@ -45,20 +45,20 @@ export const actions = {
         let filteredDownResponse = _.map(response.items, (item) => {
           return Object.assign({}, item.fields, item.sys.contentType.sys)
         })
-        // filteredDownResponse = _.each(filteredDownResponse, (item) => {
-        //   item.publishDate = item.date
-        // })
         let shows = _.orderBy(_.filter(filteredDownResponse, (item) => {
           return item.id === 'show'
         }), 'date')
         let videos = _.filter(filteredDownResponse, (item) => {
           return item.id === 'video'
         })
+        let contacts = _.filter(filteredDownResponse, (item) => {
+          return item.id === 'contacts'
+        })
         let allPosts = _.orderBy(_.filter(filteredDownResponse, (item) => {
           return item.id === 'news'
         }), 'publishDate', ['desc'])
         let allPostsWithSlugs = _.each(allPosts, (post) => {
-          post.title = post.title.split(' ').join('-')
+          post.title = post.title.split(' ').join('-').toLowerCase()
         })
         let allPostUrls = {allUrls: _.map(allPostsWithSlugs, 'title')}
         commit('updateNews', allPostUrls)
@@ -66,6 +66,7 @@ export const actions = {
         commit('setPosts', allPosts)
         commit('setShows', shows)
         commit('setVideos', videos)
+        commit('setContacts', contacts)
       })
       .catch(console.error)
   }

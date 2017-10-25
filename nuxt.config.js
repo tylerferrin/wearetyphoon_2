@@ -23,7 +23,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
     ]
   },
   /*
@@ -65,21 +65,16 @@ module.exports = {
         let filteredDownResponse = _.map(response.items, (item) => {
           return Object.assign({}, item.fields, item.sys.contentType.sys)
         })
-        filteredDownResponse = _.each(filteredDownResponse, (item) => {
-          item.publishDate = moment(item.date)
-        })
         let posts = _.orderBy(_.filter(filteredDownResponse, (item) => {
           return item.id === 'news'
         }), 'publishDate')
         return posts.map((post) => {
-          let title = post.title.toLowerCase()
+          let title = post.title.split(' ').join('-').toLowerCase()
           return {
-            route: '/news/' + kebabCase(post.title).split('-')[1],
+            route: '/news/' + title,
             payload: post
           }
         })
-
-
       })
       .catch(console.error)
     }

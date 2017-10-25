@@ -5,17 +5,17 @@
         <a class="social-link" href="http://instagram.com/typhoonfamilyvacation">Instagram</a>
       </li>
       <li>
-        <a class="social-link" href="http://facebook.com">Facebook</a>
+        <a class="social-link" href="https://www.facebook.com/wearetyphoon/">Facebook</a>
       </li>
       <li>
         <a class="social-link" href="http://twitter.com">Twitter</a>
       </li>
     </ul>
     <form class="footer__container--email__signup"
-          action="http://www.fanbridge.com/signup/fansignup_form.php?userid=206848" method="post">
+          action="https://www.fanbridge.com/signup/1.5/submit?userid=206848" method="post" target="_blank">
           <div class="footer__container--input-div">
             <input type="email" name="" placeholder="Newsletter Sign-up" value="" />
-            <input type="submit" value=" " disabled/>
+            <input type="submit" value="+"/>
           </div>
     </form>
   </div>
@@ -34,6 +34,10 @@
     display: flex
     flex-direction: column
     justify-content: flex-end
+    @media (max-width: 705px)
+      display: none
+
+
 
   &__container--email__signup
     padding: 0 25px 0 0
@@ -65,10 +69,11 @@
       padding: 0
       margin: 0
       width: 10px
-      background-image: url('~/assets/arrow.svg')
-      background-repeat: no-repeat
-      background-position: center
-      background-size: contain
+      content: ' '
+      // background-image: url('~/assets/arrow.svg')
+      // background-repeat: no-repeat
+      // background-position: center
+      // background-size: contain
 
   &__container--social-list
     margin: 0
