@@ -18,6 +18,7 @@
             <input type="submit" value="+"/>
           </div>
     </form>
+    <p class="credit">This site was designed and built by Tyler Ferrin</p>
   </div>
 </template>
 <script>
@@ -92,4 +93,13 @@
         font-weight: normal
         font-size: 10px
         letter-spacing: 1px
+.credit
+  font-family: 'Futura'
+  font-weight: bold
+  font-size: 3px
+  margin: 0
+  text-align: right
+  position: relative
+  right: 25px
+  bottom: 10px
 </style>

@@ -70,7 +70,7 @@ body
   transition: all .35s
 
 .index
-  height: 100vh
+  height: 100%
   width: 100vw
   transition: all .35s
 
