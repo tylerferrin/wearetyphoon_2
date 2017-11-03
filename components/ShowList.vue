@@ -73,9 +73,9 @@ export default {
     left: 3px
   &__row--block-two
     width: 150px
-    margin-left: 18px
+    margin-left: 0px
     @media (max-width: 705px)
-      margin-left: 10px
+      margin-left: 0px
   &__venue
     font-family: "Futura"
     font-size: 12px
@@ -85,15 +85,17 @@ export default {
     position: relative
     top: 12px
     margin: 0
+    width: 200px !important
   &__city
     font-family: "Futura"
-    font-size: 14px
+    font-size: 12px
     text-transform: uppercase
     letter-spacing: 2px
     font-weight: bold !important
     margin-bottom: 0
     position: relative
-    top: 3px
+    top: 8px
+    width: 200px !important
   &__row--block-three
     z-index: 5
     padding: 5px
@@ -134,78 +136,5 @@ export default {
     &:hover
       cursor: pointer
       color: red
-
-.showList
-  &__header-row
-    letter-spacing: 1px
-    width: auto
-    margin: 40px 0
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    &:first-child
-      margin-top: 0
-    @media (max-width: 880px)
-      display: none
-
-    p
-      display: inline-block
-      margin: 0
-      font-family: 'Futura'
-      font-size: 12px
-      font-weight: bold
-      white-space: nowrap
-      width: 125px
-      padding-top: 7px
-      text-transform: uppercase
-      @media (max-width: 1000px)
-        font-size: 10px
-
-  &__date
-    width: 75px !important
-  &__city
-    width: 100px !important
-    @media (max-width: 1000px)
-      width: 85px !important
-  &__ticket-button,
-  &__rsvp-button
-    text-decoration: none
-    text-align: center
-    font-family: 'Futura'
-    letter-spacing: 1px
-    font-size: 12px
-    font-weight: bold
-    padding: 5px
-    background-color: transparent
-    border: 2px solid black
-    color: black
-    transition: background-color .25s ease-out
-    @media (max-width: 1000px)
-      font-size: 10px
-    &:hover
-      color: white
-      background-color: black
-      cursor: pointer
-  &__ticket-button
-    width: 75px
-    @media (max-width: 1000px)
-      width: 60px
-  &__rsvp-button
-    width: 35px
-    z-index: 5
-  &__sold-out
-    color: red
-    text-decoration: none
-    font-family: 'Futura'
-    width: 75px
-    text-decoration: line-through
-    text-align: center
-    padding: 5px
-    letter-spacing: 1px
-    font-size: 12px
-    font-weight: bold
-    @media (max-width: 1000px)
-      width: 60px
-      font-size: 10px
 
 </style>

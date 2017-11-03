@@ -2,13 +2,13 @@
   <div class="footer__container">
     <ul class="footer__container--social-list">
       <li>
-        <a class="social-link" href="http://instagram.com/typhoonfamilyvacation">Instagram</a>
+        <a class="social-link" target="_blank" href="http://instagram.com/typhoonfamilyvacation">Instagram</a>
       </li>
       <li>
-        <a class="social-link" href="https://www.facebook.com/wearetyphoon/">Facebook</a>
+        <a class="social-link" target="_blank" href="https://www.facebook.com/wearetyphoon/">Facebook</a>
       </li>
       <li>
-        <a class="social-link" href="https://twitter.com/wearetyphoon">Twitter</a>
+        <a class="social-link" target="_blank" href="https://twitter.com/wearetyphoon">Twitter</a>
       </li>
     </ul>
     <form class="footer__container--email__signup"
