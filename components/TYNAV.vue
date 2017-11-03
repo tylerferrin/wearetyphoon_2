@@ -17,9 +17,9 @@
         <li>
           <nuxt-link :to="freshNews()">News</nuxt-link>
         </li>
-        <!-- <li>
+        <li>
           <nuxt-link to="/music">Music</nuxt-link>
-        </li> -->
+        </li>
         <li>
           <nuxt-link to="/tour">Tour</nuxt-link>
         </li>
@@ -111,7 +111,8 @@ export default {
         width: auto
         color: black
         font-family: 'Futura'
-        font-size: 14px
+        font-size: 10px
+        font-weight: 400
         text-transform: uppercase
         letter-spacing: 1px
         transition: transform .25s ease-in-out, color .25s ease-out
@@ -121,7 +122,7 @@ export default {
         &:hover
           cursor: pointer
           transform: translate(-5px)
-          color: #d4af37
+          color: darken(#d4af37, 10%)
           @media (max-width: 705px)
             transform: none !important
       .social-link
@@ -163,7 +164,7 @@ export default {
   &:hover
     cursor: pointer
     transform: scale(1)
-    color: #d4af37
+    color: darken(#d4af37, 10%)
 
 .hamb-button
   font-family: 'Futura'
@@ -182,7 +183,7 @@ export default {
     display: none
   &:hover
     cursor: pointer
-    color: #d4af37
+    color: darken(#d4af37, 10%)
 // nav slideIn classes
 .slideIn-enter-active,
 .slideIn-leave-active
@@ -202,5 +203,5 @@ export default {
 
 // active link behaviors
 .nuxt-link-active
-  color: #d4af37 !important
+  color: darken(#d4af37, 10%) !important
 </style>

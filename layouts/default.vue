@@ -24,7 +24,8 @@ export default {
   },
   data () {
     return {
-      notIndex: false
+      notIndex: false,
+      musicWrap: false
     }
   },
   mounted () {
@@ -64,7 +65,7 @@ body
   transition: all .25s ease-in-out
 
 .notIndex
-  min-height: 100vh
+  min-height: calc(100vh-100px)
   width: 100vw
   background-color: rgba(255,255,255, .9)
   transition: all .35s
