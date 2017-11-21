@@ -18,7 +18,6 @@
             <input type="submit" value="+"/>
           </div>
     </form>
-    <p class="credit">This site was designed and built by Tyler Ferrin</p>
   </div>
 </template>
 <script>
