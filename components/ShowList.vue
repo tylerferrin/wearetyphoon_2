@@ -8,6 +8,10 @@
       <div class="mobile__row--block-two">
         <p class="mobile__venue">{{ show.venue }}</p>
         <p class="mobile__city">{{ show.city }}</p>
+        <template v-for="(support, index) in show.support">
+          <p class="mobile__support" v-if=" index == 0 "> w / {{ support }}</p>
+          <p class="mobile__support firstOf" v-if=" index != 0 "> + {{ support }}</p>
+        </template>
       </div>
       <div class="mobile__row--block-three">
         <a class="mobile__rsvp-button" :href="show.facebookEvent" target="_blank">INFO</a>
@@ -50,11 +54,11 @@ export default {
     justify-content: space-between
     margin-bottom: 40px
     @media (min-width: 881px)
-      // display: none
       justify-content: space-around
   &__row--block-one
     border-right: 2.5px solid black
     padding-right: 20px
+    padding-top: 0 !important
     @media (max-width: 705px)
       padding-right: 10px
   &__date-month-and-day
@@ -62,13 +66,14 @@ export default {
     font-size: 24px
     padding: 0
     margin: 0
+    padding-left: 3px
   &__date-year
     font-family: "Futura"
-    font-size: 14px
+    font-size: 16px
     font-weight: bold
     padding: 0
     margin: 0
-    letter-spacing: 5px
+    letter-spacing: 6px
     position: relative
     left: 3px
   &__row--block-two
@@ -83,7 +88,7 @@ export default {
     letter-spacing: 1px
     font-weight: 100 !important
     position: relative
-    top: 12px
+    top: -1px
     margin: 0
     width: 200px !important
   &__city
@@ -92,10 +97,22 @@ export default {
     text-transform: uppercase
     letter-spacing: 2px
     font-weight: bold !important
-    margin-bottom: 0
+    margin-top: 5px
+    margin-bottom: 5px
     position: relative
-    top: 8px
+    top: 0px
     width: 200px !important
+  &__support
+    position: relative
+    font-family: "Futura"
+    font-size: 8px
+    text-transform: uppercase
+    letter-spacing: 1px
+    margin: 0
+    display: block
+    margin-bottom: 5px
+  &__support.firstOf
+    padding-left: 13px
   &__row--block-three
     z-index: 5
     padding: 5px
