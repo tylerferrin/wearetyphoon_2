@@ -5,4 +5,4 @@ deployment:
       - surge --project ./dist --domain wearetyphoon.com
 dependencies:
   override:
-    - npm install --dev
+    - npm install
