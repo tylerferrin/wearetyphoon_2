@@ -2,7 +2,6 @@ deployment:
   production:
     branch: master
     commands:
-      - npm run generate
       - surge --project ./dist --domain wearetyphoon.com
 dependencies:
   override:
