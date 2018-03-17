@@ -17,7 +17,9 @@
     "nuxt": "^1.0.0-rc11"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.1",
     "contentful": "^5.0.1",
     "dotenv": "^4.0.0",
     "eslint": "^4.3.0",
