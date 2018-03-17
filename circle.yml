@@ -2,5 +2,7 @@ deployment:
   production:
     branch: master
     commands:
-      - npm run generate
       - surge --project ./dist --domain wearetyphoon.com
+checkout:
+  post:
+    - bash automated_build.sh
