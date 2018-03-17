@@ -5,6 +5,7 @@
   "author": "Tyler Ferrin <tyferrin@gmail.com>",
   "private": true,
   "scripts": {
+    "test": "echo \"Error: no test specified.\"",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",

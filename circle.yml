@@ -4,6 +4,3 @@ deployment:
     commands:
       - npm run generate
       - surge --project ./dist --domain wearetyphoon.com
-dependencies:
-  override:
-    - npm install --dev
