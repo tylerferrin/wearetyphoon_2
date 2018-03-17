@@ -3,6 +3,3 @@ deployment:
     branch: master
     commands:
       - surge --project ./dist --domain wearetyphoon.com
-dependencies:
-  override:
-    - npm install
