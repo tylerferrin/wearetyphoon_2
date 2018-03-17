@@ -2,10 +2,8 @@ deployment:
   production:
     branch: master
     commands:
+      - bash automated_build.sh
       - surge --project ./dist --domain wearetyphoon.com
-checkout:
-  post:
-    - bash automated_build.sh
 dependencies:
   override:
     - npm install --dev
