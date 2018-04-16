@@ -1,6 +1,6 @@
-deployment:
-  production:
-    branch: master
-    commands:
-      - bash automated_build.sh
-      - surge --project ./dist --domain wearetyphoon.com
+# deployment:
+#   production:
+#     branch: master
+#     commands:
+#       - bash automated_build.sh
+#       - surge --project ./dist --domain wearetyphoon.com
