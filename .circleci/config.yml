@@ -21,4 +21,4 @@ jobs:
       - run:
           command: bash .circleci/automated_build.sh
       - run:
-          command: surge --project ./dist --domain wearetyphoon.com
+          command: npm run deploy
