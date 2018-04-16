@@ -19,4 +19,4 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          command: bash automated_build.sh
+          command: bash .circleci/automated_build.sh
