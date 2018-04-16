@@ -20,3 +20,5 @@ jobs:
             - ./node_modules
       - run:
           command: bash .circleci/automated_build.sh
+      - run:
+          command: surge --project ./dist --domain wearetyphoon.com
