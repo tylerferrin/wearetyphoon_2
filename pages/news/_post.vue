@@ -8,13 +8,9 @@
 </template>
 
 <script>
-import {createClient} from '~/plugins/contentful.js'
 import moment from 'moment'
 import _ from 'lodash'
 import marked from 'marked'
-import kebabCase from 'kebab-case'
-
-const client = createClient()
 
 export default {
   data () {

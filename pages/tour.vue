@@ -2,12 +2,7 @@
   <ShowList :shows="shows" />
 </template>
 <script>
-import {createClient} from '~/plugins/contentful.js'
-import _ from 'lodash'
-import moment from 'moment'
 import ShowList from '~/components/ShowList.vue'
-
-const client = createClient()
 
 export default {
   components: {
