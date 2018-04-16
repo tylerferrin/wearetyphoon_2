@@ -19,6 +19,8 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          command: bash .circleci/automated_build.sh
+          name: build-static-files
+          command: npm run generate
       - run:
+          name: deploy-to-surge
           command: npm run deploy
