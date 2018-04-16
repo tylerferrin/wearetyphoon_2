@@ -18,3 +18,5 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+      - run:
+          command: bash ~/automated_build.sh

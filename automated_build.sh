@@ -1,4 +1,4 @@
-#rebuild static site
+echo ### Generating new static files ###
 npm run generate
 
 git config --global user.email "tyferrin@gmail.com"
