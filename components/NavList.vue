@@ -65,7 +65,6 @@ export default {
     width: 25%
     @media screen and (max-width: 705px)
       width: 100%
-
       z-index: 0
     &__ul
       display: flex

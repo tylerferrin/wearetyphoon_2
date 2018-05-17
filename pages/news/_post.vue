@@ -118,7 +118,7 @@ export default {
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    z-index: 10
+    z-index: 2
     text-align: center
     background-color: red
     opacity: .9
@@ -135,7 +135,8 @@ export default {
 
 
   .video-wrapper
-    margin-bottom: 24px
+    margin: 32px 0
+
   .buffer
     margin-bottom: 200px
 
