@@ -11,7 +11,9 @@ export const state = () => ({
   shows: [],
   videos: [],
   currentPostIndex: null,
-  contacts: []
+  contacts: [],
+  isMobile: null,
+  isMobileNavListShowing: false
 })
 
 export const mutations = {
@@ -35,6 +37,12 @@ export const mutations = {
   },
   setContacts (state, contacts) {
     state.contacts = contacts
+  },
+  setIsMobile (state, isMobile) {
+    state.isMobile = isMobile
+  },
+  setIsMobileNavListShowing (state, isMobileNavListShowing) {
+    state.isMobileNavListShowing = isMobileNavListShowing
   }
 }
 

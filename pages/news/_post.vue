@@ -23,7 +23,7 @@ export default {
       }
     }
   },
-  beforeCreate (context) {
+  beforeCreate () {
     let postNeeded = this.$route.params.post
     this.$store.commit('setCurrentPostIndex', this.$store.state.allPostUrls.indexOf(postNeeded))
     this.post = this.$store.state.posts[this.$store.state.currentPostIndex]
@@ -31,28 +31,39 @@ export default {
   mounted () {
     const postContent = document.getElementById('content')
 
-    let youTubeIframeString = '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoId?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>'
-
-    let vimeoIframeString = '<iframe src="https://player.vimeo.com/video/videoId?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+    let youTubeIframeString = '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoId?rel=0&amp;showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>'
 
     postContent.innerHTML = marked(this.post.content)
 
-    let videos = document.getElementsByClassName('embedly-card')
-
+    let videos = document.querySelectorAll('iframe')
     _.each(videos, (video) => {
-      const src = video.href
+      let parent = video.parentNode
+      let wrapper = document.createElement('div')
+      wrapper.setAttribute('style', 'position: relative')
+      wrapper.classList.add('video-wrapper')
+      parent.replaceChild(wrapper, video)
+      const src = video.src
       let iframeString = ''
       let vId = ''
 
-      if (src.indexOf('youtube') > -1) {
-        vId = src.split('v=')[1]
-        iframeString = youTubeIframeString
-      } else if (src.indexOf('vimeo') > -1) {
-        vId = src.split('vimeo.com/')[1]
-        iframeString = vimeoIframeString
-      }
+      vId = src.split('embed/')[1]
+      iframeString = youTubeIframeString
 
-      video.parentElement.innerHTML = '<div class="video-3-4">' + iframeString.replace('videoId', vId) + '</div>'
+      let playButton = document.createElement('div')
+      playButton.classList.add('play-button')
+
+      var image = document.createElement('img')
+      var source = 'https://img.youtube.com/vi/' + vId + '/maxresdefault.jpg'
+      image.src = source
+      image.addEventListener('load', (function () {
+        wrapper.appendChild(image)
+        wrapper.appendChild(playButton)
+      }()))
+
+      wrapper.addEventListener('click', () => {
+        wrapper.innerHTML = ''
+        wrapper.innerHTML = '<div class="video-3-4">' + iframeString.replace('videoId', vId) + '</div>'
+      })
     })
   }
 }
@@ -96,8 +107,37 @@ export default {
 
   img
     width: 100%
+    z-index: 0
+    cursor: pointer
 
+  div.play-button
+    position: absolute
+    height: 100px
+    width: 100px
+    color: white
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 10
+    text-align: center
+    background-color: red
+    opacity: .9
+    border-radius: 100px
+    cursor: pointer
+    &::after
+      content: 'PLAY'
+      display: block
+      position: relative
+      top: 50%
+      transform: translate(0%, -50%)
+      font-family: 'Futura'
+      letter-spacing: 2px
+
+
+  .video-wrapper
+    margin-bottom: 24px
   .buffer
     margin-bottom: 200px
+
 
   </style>

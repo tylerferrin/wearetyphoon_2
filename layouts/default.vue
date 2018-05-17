@@ -28,6 +28,20 @@ export default {
     }
   },
   mounted () {
+    this.getWindowSize = () => window.innerWidth
+
+    this.setIsMobile = (isMobile) => {
+      this.$store.commit('setIsMobile', isMobile)
+    }
+
+    this.checkForMobile = () => {
+      this.getWindowSize() < 705 ? this.setIsMobile(true) : this.setIsMobile(false)
+    }
+
+    window.addEventListener('resize', this.checkForMobile)
+
+    this.checkForMobile()
+
     if (this.$route.name !== 'index') {
       this.notIndex = true
     } else {
