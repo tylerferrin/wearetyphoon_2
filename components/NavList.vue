@@ -88,7 +88,7 @@ export default {
           width: auto
           color: black
           font-family: 'Futura'
-          font-size: 14px
+          font-size: 12px
           text-transform: uppercase
           letter-spacing: 1px
           transition: transform .25s ease-in-out, color .25s ease-out
@@ -102,10 +102,9 @@ export default {
             @media (max-width: 705px)
               transform: none !important
         .social-link
+          font-size: 10px
           @media (min-width: 705px)
             display: none
-          &:first-child
-            font-size: 12px
     &__ul--close
       margin-top: 50px !important
       padding: 10px 20px

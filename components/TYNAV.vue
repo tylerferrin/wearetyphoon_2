@@ -10,9 +10,12 @@
       <h4
         v-on:click="openNav()"
         v-if="isMobile && !isMobileNavListShowing"
-        class="hamb-button">MENU
+        class="hamb-button"
+      >
+        MENU
       </h4>
     </transition>
+
     <transition name="slideIn">
       <NavList />
     </transition>

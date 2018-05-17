@@ -1,6 +1,20 @@
 <template>
   <div class="post__container">
-    <h1>{{ titleThatKebab(post.title) }}</h1>
+    <div
+      class="page-turners"
+      v-bind:class="{ hidePageTurners: isMobileNavListShowing }"
+    >
+      <nuxt-link :to="previous()" v-if="doesPreviousExist()">
+        <img src="~/assets/arrow.png" class="left-arrow">
+        Newer
+      </nuxt-link>
+      <nuxt-link :to="older()" v-if="doesOlderExist()">
+        Older
+        <img src="~/assets/arrow.png" class="right-arrow">
+      </nuxt-link>
+    </div>
+
+    <h1 class="post-title">{{ titleThatKebab(post.title) }}</h1>
     <h5>{{ dateFormat(post.publishDate) }}</h5>
     <div class="post__container--content" id="content"></div>
     <div class="buffer"></div>
@@ -11,8 +25,12 @@
 import moment from 'moment'
 import _ from 'lodash'
 import marked from 'marked'
+import { mapState } from 'vuex'
 
 export default {
+  computed: mapState([
+    'isMobileNavListShowing'
+  ]),
   data () {
     return {
       dateFormat: (date) => {
@@ -20,6 +38,22 @@ export default {
       },
       titleThatKebab: (title) => {
         return title.split('-').join(' ')
+      },
+      doesPreviousExist: () => {
+        if (this.$store.state.currentPostIndex - 1 >= 0) {
+          return true
+        }
+      },
+      previous: () => {
+        return '/news/' + this.$store.state.allPostUrls[this.$store.state.currentPostIndex - 1]
+      },
+      doesOlderExist: () => {
+        if (this.$store.state.allPostUrls[this.$store.state.currentPostIndex + 1]) {
+          return true
+        }
+      },
+      older: () => {
+        return '/news/' + this.$store.state.allPostUrls[this.$store.state.currentPostIndex + 1]
       }
     }
   },
@@ -72,9 +106,10 @@ export default {
 <style lang="sass">
   .post
     &__container
+      position: relative
       h1
         display: inline-block
-        margin: 0 0 10px
+        margin: 0 0 16px
         font-family: 'Futura'
         text-transform: uppercase
         letter-spacing: 1px
@@ -140,5 +175,51 @@ export default {
   .buffer
     margin-bottom: 200px
 
+  .post-title
+    display: block
+    width: 100%
+    padding-top: 16px
+    border-top: 2px solid black
+
+  .page-turners
+    position: absolute
+    top: -40px
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    width: 100%
+    z-index: 10
+    opacity: 1
+    @media screen and (max-width: 705px)
+      top: -32px
+    a
+      display: inline-block
+      text-decoration: none
+      color: black
+      text-transform: uppercase
+      font-family: 'Futura'
+      font-size: 12px
+      letter-spacing: 1px
+      @media screen and (max-width: 705px)
+        font-size: 10px
+      &:hover
+        cursor: pointer
+      img
+        height: 25px
+        width: 25px
+        position: relative
+        top: 8px
+        @media screen and (max-width: 705px)
+          height: 15px
+          width: 15px
+          top: 5px
+    .left-arrow
+      transform: rotate(-90deg)
+      margin-right: 10px
+    .right-arrow
+      transform: rotate(90deg)
+      margin-left: 14px
+  .hidePageTurners
+    opacity: 0
 
   </style>

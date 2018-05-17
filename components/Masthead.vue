@@ -6,16 +6,6 @@
       </div>
     </nuxt-link>
     <p class="page-title">{{ pageTitle }}</p>
-    <div class="page-turners" v-if="pageTitle === 'news' ">
-      <nuxt-link :to="older()" v-if="doesOlderExist()">
-        Older
-        <img src="~/assets/arrow.png" class="right-arrow">
-      </nuxt-link>
-      <nuxt-link :to="previous()" v-if="doesPreviousExist()">
-          <img src="~/assets/arrow.png" class="left-arrow">
-          Newer
-        </nuxt-link>
-    </div>
     <TYNAV />
   </div>
 </template>
@@ -28,23 +18,7 @@ export default {
   },
   data () {
     return {
-      pageTitle: null,
-      doesPreviousExist: () => {
-        if (this.$store.state.currentPostIndex - 1 >= 0) {
-          return true
-        }
-      },
-      previous: () => {
-        return '/news/' + this.$store.state.allPostUrls[this.$store.state.currentPostIndex - 1]
-      },
-      doesOlderExist: () => {
-        if (this.$store.state.allPostUrls[this.$store.state.currentPostIndex + 1]) {
-          return true
-        }
-      },
-      older: () => {
-        return '/news/' + this.$store.state.allPostUrls[this.$store.state.currentPostIndex + 1]
-      }
+      pageTitle: null
     }
   },
   mounted () {
@@ -89,7 +63,7 @@ export default {
     @media (max-width: 705px)
       background-color: white
       opacity: .97
-      height: 65px
+      height: 80px
 
   &__logo-container
     display: flex
@@ -121,36 +95,5 @@ export default {
   @media (max-width: 705px)
     display: none
 
-.page-turners
-  position: absolute
-  top: 140px
-  right: 25px
-  margin: 0
-  width: 105px
-  z-index: 25
-  a:nth-child(2)
-    margin-top: 25px
-  a
-    display: block
-    text-decoration: none
-    color: black
-    text-transform: uppercase
-    font-family: 'Futura'
-    font-size: 14px
-    float: right
-    letter-spacing: 1px
-    &:hover
-      cursor: pointer
-    img
-      height: 25px
-      width: 25px
-      position: relative
-      top: 7px
-  .left-arrow
-    transform: rotate(-90deg)
-    margin-right: 10px
-  .right-arrow
-    transform: rotate(90deg)
-    margin-left: 14px
 
 </style>
