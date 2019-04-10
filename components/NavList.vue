@@ -8,7 +8,7 @@
         <nuxt-link to="/tour">Tour</nuxt-link>
       </li>
       <li>
-        <a href="http://wearetyphoon.store" target="_blank">Store</a>
+        <a href="http://wearetyphoon.bandcamp.com" target="_blank">Store</a>
       </li>
       <li>
         <nuxt-link to="/contact">contact</nuxt-link>
